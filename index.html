@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Weather World</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link ref="stylesheet" type="text/css" href="../SnackBar-master/dist/snackbar.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="manifest" href="./manifest.json">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="../images/iconfinder_weather-02_1530391.svg" alt="" width="30" height="24" class="d-inline-block align-top">
+            Open Weather World
+        </a>
+        <form class="d-flex" action="#" method='get' id='form'>
+            <input class="form-control me-2" type="search" placeholder="Add a city" aria-label="Search" id="add-city">
+            <button class="btn btn-outline-success" type="submit">Add</button>
+        </form>
+        <button class="btn btn-outline-info" type="button" id="detailMode">Detail Mode</button>
+        <div class="form-group">
+            <select class="form-control" id="langdropdown">
+            </select>
+        </div>
+        <div id="google_translate_element"></div>
+        </div>
+    </nav>
+    <div class="container-fluid main-navbar">
+        <div class="row">
+            <!-- Sidebar -->
+            <div id="info-weather-container" class="col-sm-6 col-md-5 col-lg-4 col-xl-3 sidebar-weather" ></div>
+            <!-- Google Map -->
+            <div id="map-container" class="col-sm-6 col-md-7 col-lg-8 col-xl-9">
+                <div id="map"></div>
+            </div>
+            <div id="detail-container" class="col-sm-6 col-md-7 col-lg-8 col-xl-9" hidden>
+            </div>
+        </div>
+    </div>
+    <script>
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+    <script src="../SnackBar-master/dist/snackbar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="../js/env.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_API_KEY_HERE&callback=initMap&libraries=&v=weekly"
+    async
+    defer
+    ></script>
+</body>
+</html>
